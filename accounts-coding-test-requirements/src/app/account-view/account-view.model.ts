@@ -1,12 +1,16 @@
 export class AccountViewModel {
-    Id: number;
-    FirstName: string;
-    LastName: string;
-    Email: string;
-    PhoneNumber: string;
-    AmountDue: number;
-    PaymentDueDate: string;
-    AccountStatusId: number;
+    public Id: number;
+    public FirstName: string;
+    public LastName: string;
+    public Email: string;
+    public PhoneNumber: string;
+    public AmountDue: number;
+    public PaymentDueDate: string;
+    public AccountStatusId: number;
+
+    public deserialize(input: any) {
+        return Object.assign(this, input);
+    };
 }
 
 export enum AccountStatuses

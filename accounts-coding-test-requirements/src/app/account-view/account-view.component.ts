@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountViewModel } from './account-view.model';
+import { AccountViewService } from './account-view.service'
 
 @Component({
   selector: 'app-account-view',
@@ -7,17 +8,12 @@ import { AccountViewModel } from './account-view.model';
   styleUrls: ['./account-view.component.scss']
 })
 export class AccountViewComponent implements OnInit {
-  views : AccountViewModel[];
+  accounts : AccountViewModel[];
 
-  constructor() { }
+  constructor(private service: AccountViewService) { }
 
   ngOnInit(): void {
-    this.views = new Array(1);
-    this.views[0] = new AccountViewModel();
-    this.views[0].Id = 0;
-    this.views[0].FirstName = "FName";
-    this.views[0].LastName = "LName";
-
+    this.service.getAccounts().subscribe(accounts => this.accounts = accounts);
   }
 
 }

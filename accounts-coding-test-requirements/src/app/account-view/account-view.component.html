@@ -1,4 +1,19 @@
-<h1>Accounts</h1>
-<ul>
-    <li *ngFor="let view of views">{{view.Id}}: {{view.FirstName}} {{view.LastName}}</li>
-</ul>
+<main class="content grid" id="home-content">
+    <div class="content-title-container">
+        <h2>Accounts</h2>
+    </div>
+    <article class="account-column grid" id="active-account-column" *ngFor="let account of accounts">
+        <div class="account-container-title" id="active-account-container-title">
+          <h3>Active</h3>
+        </div>
+        <div class="account-container active-account">
+          <ul class="account-data-list">
+            <li><label>Name:</label>{{account.LastName}}, {{account.FirstName}}</li>
+            <li><label>Email:</label>{{account.Email}}</li>
+            <li><label>Phone Number:</label>{{account.PhoneNumber}}</li>
+            <li><label>Amount Due:</label>{{account.AmountDue}}</li>
+            <li><label>Due Date:</label>{{account.DueDate}}</li>
+          </ul>
+        </div>     
+    </article>
+</main>
