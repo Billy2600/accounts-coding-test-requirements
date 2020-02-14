@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { formatDate } from '@angular/common'
 import { AccountViewModel, AccountStatuses } from './account-view.model';
 import { AccountViewService } from './account-view.service'
 
@@ -17,7 +18,7 @@ export class AccountViewComponent implements OnInit {
   }
 
   public getActiveAccounts(): AccountViewModel[] {
-    if(this.accounts !== undefined) {
+    if(this.accounts !== undefined) { // Prevent an error by this being accessed too early
       return this.accounts.filter(x => x.AccountStatusId === AccountStatuses.Active);
     }
     else {
@@ -41,5 +42,19 @@ export class AccountViewComponent implements OnInit {
     else {
       return new Array(0);
     }
+  }
+
+  public formatPhoneNumber(phoneNumber: number) : string {
+    let strPhone = phoneNumber.toString();
+    // Basic phone number formatting; could definitely be done fancier, all for more formats, etc.
+    return `(${strPhone.substring(0,3)})-${strPhone.substring(3,6)}-${strPhone.substring(6,9)}`;
+  }
+
+  public formatDate(date: string): string {
+    if(date === null) {
+      return "N/A";
+    }
+
+    return formatDate(date, 'M/d/yyyy', 'en-US');
   }
 }

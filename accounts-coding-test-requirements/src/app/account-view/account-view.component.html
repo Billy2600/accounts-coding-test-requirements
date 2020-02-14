@@ -11,9 +11,9 @@
           <ul class="account-data-list" *ngFor="let account of getActiveAccounts()">
             <li><label>Name:</label>{{account.LastName}}, {{account.FirstName}}</li>
             <li><label>Email:</label>{{account.Email}}</li>
-            <li><label>Phone Number:</label>{{account.PhoneNumber}}</li>
-            <li><label>Amount Due:</label>{{account.AmountDue}}</li>
-            <li><label>Due Date:</label>{{account.DueDate}}</li>
+            <li><label>Phone Number:</label>{{formatPhoneNumber(account.PhoneNumber)}}</li>
+            <li><label>Amount Due:</label>${{account.AmountDue}}</li>
+            <li><label>Due Date:</label>{{formatDate(account.PaymentDueDate)}}</li>
           </ul>
         </div>     
       </article>
@@ -25,9 +25,9 @@
           <ul class="account-data-list" *ngFor="let account of getOverdueAccounts()">
             <li><label>Name:</label>{{account.LastName}}, {{account.FirstName}}</li>
             <li><label>Email:</label>{{account.Email}}</li>
-            <li><label>Phone Number:</label>{{account.PhoneNumber}}</li>
-            <li><label>Amount Due:</label>{{account.AmountDue}}</li>
-            <li><label>Due Date:</label>{{account.DueDate}}</li>
+            <li><label>Phone Number:</label>{{formatPhoneNumber(account.PhoneNumber)}}</li>
+            <li><label>Amount Due:</label>${{account.AmountDue}}</li>
+            <li><label>Due Date:</label>{{formatDate(account.PaymentDueDate)}}</li>
           </ul>
         </div>
       </article>
@@ -39,9 +39,9 @@
           <ul class="account-data-list" *ngFor="let account of getInactiveAccounts()">
             <li><label>Name:</label>{{account.LastName}}, {{account.FirstName}}</li>
             <li><label>Email:</label>{{account.Email}}</li>
-            <li><label>Phone Number:</label>{{account.PhoneNumber}}</li>
-            <li><label>Amount Due:</label>{{account.AmountDue}}</li>
-            <li><label>Due Date:</label>{{account.DueDate}}</li>
+            <li><label>Phone Number:</label>{{formatPhoneNumber(account.PhoneNumber)}}</li>
+            <li><label>Amount Due:</label>${{account.AmountDue}}</li>
+            <li><label>Due Date:</label>{{formatDate(account.PaymentDueDate)}}</li>
           </ul>
         </div>
       </div>
