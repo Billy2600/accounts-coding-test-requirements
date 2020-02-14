@@ -8,9 +8,9 @@ export class AccountViewModel {
     public PaymentDueDate: string;
     public AccountStatusId: number;
 
-    public deserialize(input: any) {
+    public deserialize(input: any): this {
         return Object.assign(this, input);
-    };
+    }
 }
 
 export enum AccountStatuses
