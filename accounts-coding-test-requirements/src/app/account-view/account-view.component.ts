@@ -52,7 +52,7 @@ export class AccountViewComponent implements OnInit {
 
   public formatDate(date: string): string {
     if(date === null) {
-      return "N/A";
+      return "N/A"; // null dates shouldn't be shown, but just in case they are
     }
 
     return formatDate(date, 'M/d/yyyy', 'en-US');
